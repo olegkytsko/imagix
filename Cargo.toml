@@ -1,0 +1,22 @@
+[package]
+name = "imagecli"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+name = "imagix"
+path = "src/imagix/mod.rs"
+
+[[bin]]
+name = "imagecli"
+path = "src/imagecli.rs"
+
+[dependencies]
+clap = "4.3.11"
+image = "0.23.7"
+structopt = "0.3.15"
+exitcode = "1.1.2"
+
+[dev-dependencies]
+assert_cmd = "2.0.11"
+predicates = "3.0.3"

@@ -1,0 +1,89 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        
+        {
+            "type": "lldb",
+            "request": "launch",
+            "name": "Debug unit tests in library 'imagix'",
+            "cargo": {
+                "args": [
+                    "test",
+                    "--no-run",
+                    "--lib",
+                    "--package=imagecli"
+                ],
+                "filter": {
+                    "name": "imagix",
+                    "kind": "lib"
+                }
+            },
+            "args": [],
+            "cwd": "${workspaceFolder}"
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "name": "Debug executable 'imagecli'",
+            "cargo": {
+                "args": [
+                    "build",
+                    "--bin=imagecli",
+                    "--package=imagecli",
+                ],
+                "filter": {
+                    "name": "imagecli",
+                    "kind": "bin"
+                }
+            },
+            "args": [
+                "resize",
+                "--size=small",
+                "--mode=single",
+                "--srcfolder=tmp/images/no_read_image.jpg"
+            ],
+            "cwd": "${workspaceFolder}"
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "name": "Debug unit tests in executable 'imagecli'",
+            "cargo": {
+                "args": [
+                    "test",
+                    "--no-run",
+                    "--bin=imagecli",
+                    "--package=imagecli"
+                ],
+                "filter": {
+                    "name": "imagecli",
+                    "kind": "bin"
+                }
+            },
+            "args": [],
+            "cwd": "${workspaceFolder}"
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "name": "Debug integration test 'tests'",
+            "cargo": {
+                "args": [
+                    "test",
+                    "--no-run",
+                    "--test=tests",
+                    "--package=imagecli"
+                ],
+                "filter": {
+                    "name": "tests",
+                    "kind": "test"
+                }
+            },
+            "args": [],
+            "cwd": "${workspaceFolder}"
+        }
+    ]
+}
